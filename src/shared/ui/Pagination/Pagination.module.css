@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+}
+
+.paginationInfo {
+  color: #8f9098;
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageBtn {
+  min-width: 30px;
+  height: 30px;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  color: #b2b3b9;
+  font-size: 14px;
+  border: none;
+}
+
+.pageBtnActive {
+  background: #797fea;
+  color: #fff;
+}
+
+.pageBtnDisabled {
+  opacity: 0.6;
+  cursor: default;
+}

@@ -1,0 +1,83 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal {
+  width: 520px;
+  border-radius: 16px;
+  background: var(--white);
+  border: 1px solid #ededf1;
+  padding: 18px 18px 16px;
+}
+
+.modalTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-black);
+  margin-bottom: 14px;
+}
+
+.modalGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.modalField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modalLabel {
+  font-size: 12px;
+  color: #a6a7b0;
+}
+
+.modalInput {
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid #ececeb;
+  background: var(--white);
+  padding: 0 12px;
+  font-size: 14px;
+}
+
+.modalError {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #ff5a5a;
+}
+
+.modalFooter {
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.secondaryBtn {
+  height: 54px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #fff;
+  border: 1px solid #ececeb;
+  cursor: pointer;
+}
+
+.primaryBtn {
+  height: 54px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: var(--primary);
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 600;
+}

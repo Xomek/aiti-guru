@@ -1,0 +1,40 @@
+.sortButton {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.sortActive {
+  color: var(--text-black);
+}
+
+.sortArrow {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+
+.sortArrowAsc {
+  border-bottom: 7px solid #a6a7b0;
+}
+
+.sortArrowDesc {
+  border-top: 7px solid #a6a7b0;
+}
+
+.sortActive .sortArrowAsc {
+  border-bottom-color: var(--primary);
+}
+
+.sortActive .sortArrowDesc {
+  border-top-color: var(--primary);
+}
