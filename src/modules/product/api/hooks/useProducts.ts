@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import axios from 'axios'
 
-import { type DummyProduct, productsApi } from '@shared/api/products'
+import { useProductStore } from '@modules/product/store/productStore'
+
+import { productsApi } from '@shared/api/products'
 import { useAuth } from '@shared/hooks/useAuth'
 import { useDebounce } from '@shared/hooks/useDebounce'
 import { ROUTES } from '@shared/routing'
@@ -13,27 +15,22 @@ export type SortOrder = 'asc' | 'desc'
 
 const PAGE_SIZE = 10
 
-interface UseProductsProps {
-  page: number
-  sortKey: SortKey
-  sortOrder: SortOrder
-  searchValue: string
-}
-
-export const useProducts = ({
-  page,
-  sortKey,
-  sortOrder,
-  searchValue,
-}: UseProductsProps) => {
+export const useProducts = () => {
   const navigate = useNavigate()
   const { clearAuth } = useAuth()
-  const debouncedSearch = useDebounce(searchValue, 400)
 
-  const [products, setProducts] = useState<DummyProduct[]>([])
-  const [total, setTotal] = useState(0)
-  const [isLoading, setIsLoading] = useState(false)
-  const [fetchError, setFetchError] = useState<string | null>(null)
+  const {
+    page,
+    sortKey,
+    sortOrder,
+    searchValue,
+    setProducts,
+    setTotal,
+    setIsLoading,
+    setFetchError,
+  } = useProductStore()
+
+  const debouncedSearch = useDebounce(searchValue, 400)
 
   const sortKeyToApi = {
     title: 'title',
@@ -88,12 +85,6 @@ export const useProducts = ({
   }, [page, sortKey, sortOrder, debouncedSearch])
 
   return {
-    products,
-    total,
-    isLoading,
-    fetchError,
     load,
-    setProducts,
-    setTotal,
   }
 }

@@ -1,11 +1,9 @@
 import { useState } from 'react'
 
-import {
-  type SortKey,
-  useProducts,
-} from '@modules/product/api/hooks/useProducts'
+import { useProducts } from '@modules/product/api/hooks/useProducts'
 import { useSelection } from '@modules/product/api/hooks/useSelection'
 import { useSort } from '@modules/product/api/hooks/useSort'
+import { SortKey, useProductStore } from '@modules/product/store/productStore'
 import {
   type AddProductData,
   AddProductModal,
@@ -23,26 +21,22 @@ import styles from './ProductsPage.module.css'
 const PAGE_SIZE = 10
 
 export const ProductsPage = () => {
-  const [page, setPage] = useState(0)
-  const [searchValue, setSearchValue] = useState('')
   const [isAddOpen, setIsAddOpen] = useState(false)
 
-  const { sortKey, sortOrder, toggleSort } = useSort()
   const {
+    page,
+    searchValue,
+    setPage,
+    setSearchValue,
     products,
     total,
     isLoading,
     fetchError,
-    load,
     setProducts,
     setTotal,
-  } = useProducts({
-    page,
-    sortKey,
-    sortOrder,
-    searchValue,
-  })
-
+  } = useProductStore()
+  const { load } = useProducts()
+  const { sortKey, sortOrder, toggleSort } = useSort()
   const {
     selected,
     allSelectedOnPage,
@@ -50,7 +44,6 @@ export const ProductsPage = () => {
     toggleSelect,
     clearSelection,
   } = useSelection(products)
-
   const { toasts, pushToast } = useToast()
 
   const refresh = () => {

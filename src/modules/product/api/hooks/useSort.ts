@@ -1,28 +1,13 @@
-import { useMemo, useState } from 'react'
+import { useEffect } from 'react'
 
-type SortKey = 'title' | 'brand' | 'sku' | 'rating' | 'price'
-type SortOrder = 'asc' | 'desc'
-type ProductsSortState = { sortKey: SortKey; sortOrder: SortOrder }
+import { useProductStore } from '@modules/product/store/productStore'
+
+import { SortKey, SortOrder } from './useProducts'
 
 const SORT_STORAGE_KEY = 'products_sort'
 
 export const useSort = () => {
-  const initialSort = useMemo(() => {
-    try {
-      const raw = localStorage.getItem(SORT_STORAGE_KEY)
-      if (!raw) return { sortKey: 'price' as const, sortOrder: 'asc' as const }
-      const parsed = JSON.parse(raw) as Partial<ProductsSortState>
-      return {
-        sortKey: (parsed.sortKey as SortKey) ?? 'price',
-        sortOrder: (parsed.sortOrder as SortOrder) ?? 'asc',
-      }
-    } catch {
-      return { sortKey: 'price' as const, sortOrder: 'asc' as const }
-    }
-  }, [])
-
-  const [sortKey, setSortKey] = useState<SortKey>(initialSort.sortKey)
-  const [sortOrder, setSortOrder] = useState<SortOrder>(initialSort.sortOrder)
+  const { sortKey, sortOrder, setSortKey, setSortOrder } = useProductStore()
 
   const setSortAndPersist = (nextKey: SortKey, nextOrder?: SortOrder) => {
     const finalOrder = nextOrder ?? sortOrder
@@ -42,6 +27,22 @@ export const useSort = () => {
       setSortAndPersist(key, 'asc')
     }
   }
+
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(SORT_STORAGE_KEY)
+      if (raw) {
+        const parsed = JSON.parse(raw) as {
+          sortKey: SortKey
+          sortOrder: SortOrder
+        }
+        setSortKey(parsed.sortKey)
+        setSortOrder(parsed.sortOrder)
+      }
+    } catch {
+      console.log('Ошибка сортировки')
+    }
+  }, [setSortKey, setSortOrder])
 
   return {
     sortKey,
