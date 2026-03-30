@@ -90,12 +90,17 @@ export const ProductsTable = ({
       <div className={styles.tableBody}>
         {products.map((p) => {
           const isLow = p.rating < 3.5
+          const isSelected = selected.has(p.id)
+
           return (
-            <div key={p.id} className={styles.row}>
+            <div
+              key={p.id}
+              className={clsx(styles.row, isSelected && styles.rowSelected)}
+            >
               <div>
                 <input
                   type="checkbox"
-                  checked={selected.has(p.id)}
+                  checked={isSelected}
                   onChange={() => onToggleSelect(p.id)}
                 />
               </div>
