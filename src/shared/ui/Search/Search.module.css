@@ -1,0 +1,20 @@
+.search {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  input {
+    padding: 6px 10px 6px 40px;
+    font-size: 14px;
+    border: none;
+    border-radius: 12px;
+    background-color: var(--white);
+    color: var(--text);
+  }
+
+  svg {
+    position: absolute;
+    left: 10px;
+    width: 20px;
+  }
+}
