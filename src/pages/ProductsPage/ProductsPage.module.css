@@ -26,36 +26,6 @@
   max-width: 1000px;
 }
 
-.actionsRight {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.iconBtn {
-  width: 40px;
-  height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  background: var(--white);
-  border: 1px solid #ededf1;
-  cursor: pointer;
-  color: #7d7f89;
-}
-
-.iconBtn:hover {
-  background: #ffffff;
-}
-
-.addButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  height: 42px;
-}
-
 .tableContainer {
   position: relative;
   min-height: 400px;

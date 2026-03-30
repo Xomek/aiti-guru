@@ -2,7 +2,8 @@ import clsx from 'clsx'
 
 import { type DummyProduct } from '@shared/api/products'
 import plusIcon from '@shared/assets/icons/plus.svg'
-import { Checkbox } from '@shared/ui'
+import refetchIcon from '@shared/assets/icons/refetch.svg'
+import { Button, Checkbox } from '@shared/ui'
 
 import { formatPrice } from '../../utils/formatPrice'
 import { SortButton } from '../SortButton/SortButton'
@@ -21,6 +22,8 @@ interface ProductsTableProps {
   sortKey: SortKey
   sortOrder: 'asc' | 'desc'
   onSort: (key: SortKey) => void
+  onRefresh: () => void
+  onAddProduct: () => void
 }
 
 export const ProductsTable = ({
@@ -34,10 +37,34 @@ export const ProductsTable = ({
   sortKey,
   sortOrder,
   onSort,
+  onRefresh,
+  onAddProduct,
 }: ProductsTableProps) => {
   return (
     <div className={styles.tableCard}>
-      <h4 className={styles.title}>Все позиции</h4>
+      <div className={styles.tableHeader}>
+        <h4 className={styles.title}>Все позиции</h4>
+
+        <div className={styles.actionsRight}>
+          <button
+            type="button"
+            className={styles.iconBtn}
+            onClick={onRefresh}
+            aria-label="Рефреш"
+          >
+            <img src={refetchIcon} alt="" />
+          </button>
+
+          <Button
+            className={styles.addButton}
+            type="button"
+            onClick={onAddProduct}
+          >
+            <img src={plusIcon} alt="" width={24} height={24} />
+            <span>Добавить</span>
+          </Button>
+        </div>
+      </div>
 
       <div className={styles.tableHead}>
         <Checkbox checked={allSelected} onChange={onSelectAll} />

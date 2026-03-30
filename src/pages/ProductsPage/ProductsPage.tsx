@@ -12,10 +12,7 @@ import {
 } from '@modules/product/ui/AddProductModal/AddProductModal'
 import { ProductsTable } from '@modules/product/ui/ProductsTable/ProductsTable'
 
-import plusIcon from '@shared/assets/icons/plus.svg'
-import refetchIcon from '@shared/assets/icons/refetch.svg'
 import { useToast } from '@shared/hooks/useToast'
-import { Button } from '@shared/ui/Button'
 import { Loader } from '@shared/ui/Loader/Loader'
 import { Pagination } from '@shared/ui/Pagination'
 import { Search } from '@shared/ui/Search'
@@ -107,25 +104,7 @@ export const ProductsPage = () => {
           />
         </div>
 
-        <div className={styles.actionsRight}>
-          <button
-            type="button"
-            className={styles.iconBtn}
-            onClick={refresh}
-            aria-label="Рефреш"
-          >
-            <img src={refetchIcon} alt="" />
-          </button>
-
-          <Button
-            className={styles.addButton}
-            type="button"
-            onClick={() => setIsAddOpen(true)}
-          >
-            <img src={plusIcon} alt="" width={24} height={24} />
-            <span>Добавить</span>
-          </Button>
-        </div>
+        <div></div>
       </div>
 
       <div className={styles.tableContainer}>
@@ -142,6 +121,8 @@ export const ProductsPage = () => {
           sortKey={sortKey}
           sortOrder={sortOrder}
           onSort={handleSort}
+          onRefresh={refresh}
+          onAddProduct={() => setIsAddOpen(true)}
         />
 
         {fetchError && (
