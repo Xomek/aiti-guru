@@ -13,7 +13,7 @@
 }
 
 .title {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 600;
   color: var(--text-black);
 }
@@ -50,6 +50,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  height: 42px;
 }
 
 .progressWrap {
@@ -160,7 +161,6 @@
 }
 
 .cell {
-  font-size: 13px;
   color: var(--text-black);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -170,15 +170,15 @@
 .nameCell {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 18px;
   min-width: 0;
 }
 
 .imagePlaceholder {
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  background: #d8d8da;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: #ececeb;
   flex-shrink: 0;
 }
 
@@ -187,7 +187,6 @@
 }
 
 .nameTitle {
-  font-size: 13px;
   color: var(--text-black);
   font-weight: 600;
   overflow: hidden;
@@ -196,8 +195,8 @@
 }
 
 .nameSubtitle {
-  margin-top: 2px;
-  font-size: 11px;
+  margin-top: 10px;
+  font-size: 14px;
   color: #b2b3b9;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -250,7 +249,6 @@
 }
 
 .paginationInfo {
-  font-size: 13px;
   color: #8f9098;
 }
 
@@ -261,19 +259,19 @@
 }
 
 .pageBtn {
-  min-width: 28px;
-  height: 28px;
-  border-radius: 10px;
+  min-width: 30px;
+  height: 30px;
+  border-radius: 4px;
   border: 1px solid #ededf1;
   background: #fff;
   cursor: pointer;
-  color: #8f9098;
-  font-size: 12px;
-  padding: 0 8px;
+  color: #b2b3b9;
+  font-size: 14px;
+  border: none;
 }
 
 .pageBtnActive {
-  background: var(--primary);
+  background: #797fea;
   color: #fff;
   border-color: var(--primary);
 }
