@@ -1,3 +1,5 @@
+import { LoginForm } from '@modules/auth/ui/LoginForm'
+
 export const LoginPage = () => {
-  return <div></div>
+  return <LoginForm />
 }

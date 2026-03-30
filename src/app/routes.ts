@@ -7,14 +7,23 @@ import { RegistrationPage } from '@pages/RegistrationPage'
 
 import { ROUTES } from '@shared/routing'
 
+import { AuthLayout } from './layouts/AuthLayout'
+import { ProtectedRoute } from './layouts/ProtectedRoute'
+
 export const router = createBrowserRouter([
   {
-    path: ROUTES.PRODUCTS,
-    Component: ProductsPage,
+    Component: AuthLayout,
+    children: [
+      { path: ROUTES.LOGIN, Component: LoginPage },
+      { path: ROUTES.REGISTER, Component: RegistrationPage },
+    ],
   },
 
-  { path: ROUTES.LOGIN, Component: LoginPage },
-  { path: ROUTES.REGISTER, Component: RegistrationPage },
+  {
+    path: ROUTES.PRODUCTS,
+    Component: ProtectedRoute,
+    children: [{ index: true, Component: ProductsPage }],
+  },
 
   {
     path: '*',
