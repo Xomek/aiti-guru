@@ -1,0 +1,18 @@
+.input {
+  padding: 6px 10px 6px 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--white);
+  color: var(--text);
+  border: 1px solid transparent;
+
+  &:focus {
+    outline: 1px solid var(--text);
+  }
+}
+
+.error {
+  border: 1px solid #f18372;
+  outline: none;
+}
