@@ -45,7 +45,12 @@ export const RegistrationForm = () => {
 
       <div className={styles.fields}>
         <div className={styles.field}>
-          <div className={styles.label}>Логин</div>
+          <div className={styles.labelWrapper}>
+            <div className={styles.label}>Логин</div>
+            {errors.username && (
+              <div className={styles.errorText}>{errors.username}</div>
+            )}
+          </div>
           <div className={styles.inputContainer}>
             <div className={styles.leftIcon}>
               <UserIcon />
@@ -59,13 +64,15 @@ export const RegistrationForm = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </div>
-          {errors.username && (
-            <div className={styles.errorText}>{errors.username}</div>
-          )}
         </div>
 
         <div className={styles.field}>
-          <div className={styles.label}>Пароль</div>
+          <div className={styles.labelWrapper}>
+            <div className={styles.label}>Пароль</div>
+            {errors.password && (
+              <div className={styles.errorText}>{errors.password}</div>
+            )}
+          </div>
           <div className={styles.inputContainer}>
             <div className={styles.leftIcon}>
               <LockIcon />
@@ -87,9 +94,6 @@ export const RegistrationForm = () => {
               <EyeOffIcon />
             </button>
           </div>
-          {errors.password && (
-            <div className={styles.errorText}>{errors.password}</div>
-          )}
         </div>
       </div>
 

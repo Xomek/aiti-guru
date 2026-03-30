@@ -9,8 +9,8 @@ import { useSort } from '@modules/product/api/hooks/useSort'
 import {
   type AddProductData,
   AddProductModal,
-} from '@modules/product/ui/AddProductModal'
-import { ProductsTable } from '@modules/product/ui/ProductsTable'
+} from '@modules/product/ui/AddProductModal/AddProductModal'
+import { ProductsTable } from '@modules/product/ui/ProductsTable/ProductsTable'
 
 import plusIcon from '@shared/assets/icons/plus.svg'
 import refetchIcon from '@shared/assets/icons/refetch.svg'

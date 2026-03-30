@@ -78,7 +78,6 @@ export const useAuth = () => {
           }
         }
 
-        // Любая другая ошибка проверки - считаем, что токен невалидный.
         clearAuth()
         setIsReady(true)
       }

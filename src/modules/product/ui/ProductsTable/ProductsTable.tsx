@@ -2,10 +2,11 @@ import clsx from 'clsx'
 
 import { type DummyProduct } from '@shared/api/products'
 import plusIcon from '@shared/assets/icons/plus.svg'
+import { Checkbox } from '@shared/ui'
 
-import { formatPrice } from '../utils/formatPrice'
+import { formatPrice } from '../../utils/formatPrice'
+import { SortButton } from '../SortButton/SortButton'
 import styles from './ProdcutsTable.module.css'
-import { SortButton } from './SortButton'
 
 export type SortKey = 'title' | 'brand' | 'sku' | 'rating' | 'price'
 
@@ -36,8 +37,10 @@ export const ProductsTable = ({
 }: ProductsTableProps) => {
   return (
     <div className={styles.tableCard}>
+      <h4 className={styles.title}>Все позиции</h4>
+
       <div className={styles.tableHead}>
-        <input type="checkbox" checked={allSelected} onChange={onSelectAll} />
+        <Checkbox checked={allSelected} onChange={onSelectAll} />
 
         <div>
           <SortButton
@@ -83,8 +86,6 @@ export const ProductsTable = ({
             onClick={() => onSort('price')}
           />
         </div>
-
-        <div></div>
       </div>
 
       <div className={styles.tableBody}>
@@ -98,8 +99,7 @@ export const ProductsTable = ({
               className={clsx(styles.row, isSelected && styles.rowSelected)}
             >
               <div>
-                <input
-                  type="checkbox"
+                <Checkbox
                   checked={isSelected}
                   onChange={() => onToggleSelect(p.id)}
                 />

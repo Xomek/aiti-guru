@@ -12,6 +12,7 @@ import { Input } from '@shared/ui/Input'
 
 import styles from '../Auth.module.css'
 import { useLoginForm } from './useLoginForm'
+
 export const LoginForm = () => {
   const navigate = useNavigate()
 
@@ -48,7 +49,12 @@ export const LoginForm = () => {
 
       <div className={styles.fields}>
         <div className={styles.field}>
-          <div className={styles.label}>Логин</div>
+          <div className={styles.labelWrapper}>
+            <div className={styles.label}>Логин</div>
+            {errors.username && (
+              <div className={styles.errorText}>{errors.username}</div>
+            )}
+          </div>
           <div className={styles.inputContainer}>
             <div className={styles.leftIcon}>
               <UserIcon />
@@ -72,13 +78,15 @@ export const LoginForm = () => {
               </button>
             )}
           </div>
-          {errors.username && (
-            <div className={styles.errorText}>{errors.username}</div>
-          )}
         </div>
 
         <div className={styles.field}>
-          <div className={styles.label}>Пароль</div>
+          <div className={styles.labelWrapper}>
+            <div className={styles.label}>Пароль</div>
+            {errors.password && (
+              <div className={styles.errorText}>{errors.password}</div>
+            )}
+          </div>
           <div className={styles.inputContainer}>
             <div className={styles.leftIcon}>
               <LockIcon />
@@ -100,9 +108,6 @@ export const LoginForm = () => {
               <EyeOffIcon />
             </button>
           </div>
-          {errors.password && (
-            <div className={styles.errorText}>{errors.password}</div>
-          )}
         </div>
 
         <label className={styles.checkboxRow}>

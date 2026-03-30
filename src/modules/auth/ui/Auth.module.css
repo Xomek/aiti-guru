@@ -1,6 +1,5 @@
 .form {
   width: 527px;
-  height: 716px;
   border-radius: 40px;
   background-color: var(--white);
   box-shadow: 0px 24px 32px rgba(0, 0, 0, 0.04);
@@ -49,12 +48,29 @@
 
 .field {
   text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
 
 .label {
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 10px;
+  color: var(--text-black);
+}
+
+.errorText {
+  font-size: 14px;
+  color: #f18372;
+  text-align: right;
+  flex-shrink: 0;
 }
 
 .inputContainer {
@@ -111,20 +127,6 @@
   border-color: #f18372;
 }
 
-.errorText {
-  margin-top: 8px;
-  font-size: 14px;
-  color: #f18372;
-}
-
-.apiError {
-  margin-top: -4px;
-  margin-bottom: 6px;
-  font-size: 14px;
-  color: #f18372;
-  text-align: left;
-}
-
 .input:focus {
   outline: none;
   border-color: var(--secondary);
@@ -137,11 +139,19 @@
   justify-content: flex-start;
   cursor: pointer;
   user-select: none;
+  margin-top: 4px;
 }
 
 .checkboxText {
   font-size: 16px;
   color: var(--text-grey);
+}
+
+.apiError {
+  font-size: 14px;
+  color: #f18372;
+  text-align: left;
+  margin-top: -8px;
 }
 
 .submitButton {
@@ -153,7 +163,6 @@
   display: flex;
   align-items: center;
   gap: 18px;
-  margin-top: -2px;
 }
 
 .orLine {
@@ -173,12 +182,6 @@
   color: var(--text-grey);
 }
 
-.bottomLink {
-  color: var(--primary);
-  text-decoration: underline;
-  font-weight: 600;
-}
-
 .createText {
   color: var(--primary);
   text-decoration: underline;
@@ -186,9 +189,6 @@
   background: none;
   border: none;
   padding: 0;
-  cursor: default;
-}
-
-.createText:disabled {
-  opacity: 1;
+  margin-left: 8px;
+  cursor: pointer;
 }
