@@ -114,7 +114,7 @@ export const ProductsTable = ({
                   </div>
                 </div>
               </div>
-              <div className={styles.cell}>{p.brand}</div>
+              <div className={clsx(styles.cell, styles.brand)}>{p.brand}</div>
               <div className={styles.cell}>{p.sku}</div>
               <div className={clsx(styles.cell, isLow && styles.ratingLow)}>
                 {p.rating.toFixed(1)}
